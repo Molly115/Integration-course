@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 09: Validation & Conventions</title>
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --card-bg: #0c1226;
+            --primary-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --text-main: #ffffff;
+            --text-dim: #8fa0bc;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover { color: var(--accent-orange); }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .label { color: var(--accent-orange); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h1 { font-size: 2.5rem; margin: 10px 0; color: #ffca64; }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        h2 { color: var(--accent-orange); margin-top: 0; border-left: 4px solid var(--accent-orange); padding-left: 15px; font-size: 1.4rem;}
+        
+        ul { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 10px; }
+
+        .convention-box {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .convention-title {
+            color: var(--accent-orange);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← BACK TO SYLLABUS</a>
+
+    <header>
+        <div class="label">Lesson 09</div>
+        <h1>Validation & Writing Conventions</h1>
+        <p class="text-dim">Ensuring code conformance and professional content standards.</p>
+    </header>
+
+    <div class="section-grid">
+        <div class="card">
+            <h2>W3C Validation Services</h2>
+            <p>W3C provides free services to check if your website follows "Open Standards."</p>
+            <ul>
+                <li><strong>Purpose:</strong> Evaluates HTML, XHTML, and CSS code for errors.</li>
+                <li><strong>Conformance:</strong> Helps ensure your site works consistently across all browsers.</li>
+                <li><strong>Learning Tool:</strong> Web designers use it to evaluate and learn from other sites.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Service Security</h2>
+            <p>Sometimes these services are abused by third parties, but modest traffic is normal.</p>
+            <ul>
+                <li><strong>Blocking:</strong> You can block validators using IP addresses or User-Agent headers.</li>
+                <li><strong>Caution:</strong> Ensure no one in your own organization is using the tool before blocking it.</li>
+            </ul>
+        </div>
+
+        <div class="card full-width">
+            <h2>Professional Writing Conventions</h2>
+            <p>Beyond code, the text on your website must follow specific rules to help readers understand your message.</p>
+            
+            <div class="section-grid" style="margin-top: 20px; margin-bottom: 0;">
+                <div class="convention-box">
+                    <span class="convention-title">Spelling</span>
+                    All words must be spelled correctly, including tricky homophones.
+                </div>
+                <div class="convention-box">
+                    <span class="convention-title">Punctuation</span>
+                    Correct use of full stops, commas in lists, and apostrophes.
+                </div>
+                <div class="convention-box">
+                    <span class="convention-title">Capitalization</span>
+                    Required for proper nouns and the start of sentences.
+                </div>
+                <div class="convention-box">
+                    <span class="convention-title">Grammar</span>
+                    Strict adherence to subject-verb agreement and correct tenses.
+                </div>
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>Common Pitfalls to Avoid</h2>
+            <ul>
+                <li><strong>Overly Wordy Sentences:</strong> Keep your content concise for web readers.</li>
+                <li><strong>Poor Paragraphing:</strong> Break text into small, readable chunks.</li>
+                <li><strong>Genre Specifics:</strong> Remember that different types of writing (like scripts vs. articles) have different rules.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: sherrost@yahoo.com | Tel: 01501827070</p>
+        <p>Integration Course - Final Module</p>
+    </footer>
+</div>
+
+</body>
+</html>

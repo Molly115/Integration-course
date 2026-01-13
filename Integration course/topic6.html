@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 06: Web Forms</title>
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --card-bg: #0c1226;
+            --primary-blue: #3b82f6;
+            --accent-green: #10b981;
+            --text-main: #ffffff;
+            --text-dim: #8fa0bc;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover { color: var(--accent-green); }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .label { color: var(--accent-green); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h1 { font-size: 2.5rem; margin: 10px 0; color: #4ed9c2; }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        h2 { color: var(--accent-green); margin-top: 0; border-left: 4px solid var(--accent-green); padding-left: 15px; font-size: 1.4rem;}
+        
+        ul { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 10px; }
+
+        .code-block {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #dcdccc;
+            overflow-x: auto;
+            border: 1px dashed var(--accent-green);
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .tag { color: #569cd6; }
+        .attr { color: #9cdcfe; }
+        .val { color: #ce9178; }
+
+        /* Training Solution Form Style */
+        .example-form {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        fieldset {
+            border: 2px solid #333;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← BACK TO SYLLABUS</a>
+
+    <header>
+        <div class="label">Lesson 06</div>
+        <h1>Forms & Input</h1>
+        <p class="text-dim">Building interactive user interfaces and styling form controls.</p>
+    </header>
+
+    <div class="section-grid">
+        <div class="card">
+            <h2>Essential Elements</h2>
+            <p>Forms allow users to enter data which is then sent to a server for processing.</p>
+            <ul>
+                <li><strong>&lt;form&gt;</strong>: The container for all form elements.</li>
+                <li><strong>&lt;label&gt;</strong>: Defines a caption for an item.</li>
+                <li><strong>&lt;input&gt;</strong>: The most used element; can be text, radio, checkbox, etc.</li>
+                <li><strong>&lt;textarea&gt;</strong>: For multi-line text input.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>The &lt;button&gt; Element</h2>
+            <p>Accepts a <code>type</code> attribute with three values:</p>
+            <ul>
+                <li><strong>submit</strong>: Sends form data to the page defined in the action.</li>
+                <li><strong>reset</strong>: Returns all widgets to default values.</li>
+                <li><strong>button</strong>: A generic button (used with JavaScript).</li>
+            </ul>
+        </div>
+
+        <div class="card full-width">
+            <h2>Organization: Fieldset & Legend</h2>
+            <p>The <code>&lt;fieldset&gt;</code> tag is used to group related data in a form, and <code>&lt;legend&gt;</code> defines a caption for that group.</p>
+            <div class="code-block">
+                <span class="tag">&lt;fieldset&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;legend&gt;</span>Employee Details<span class="tag">&lt;/legend&gt;</span><br>
+                &nbsp;&nbsp;First name: <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span><span class="tag">&gt;</span><br>
+                <span class="tag">&lt;/fieldset&gt;</span>
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>Form Styling (CSS)</h2>
+            <p>Forms can be difficult to style. Use these common CSS properties to improve UX:</p>
+            <div class="code-block">
+                <span class="tag">form</span> { <span class="attr">margin</span>: <span class="val">0 auto</span>; <span class="attr">width</span>: <span class="val">400px</span>; }<br>
+                <span class="tag">input, textarea</span> { <span class="attr">font</span>: <span class="val">1em sans-serif</span>; <span class="attr">width</span>: <span class="val">100%</span>; }<br>
+                <span class="tag">button</span> { <span class="attr">padding</span>: <span class="val">5px 10px</span>; <span class="attr">border-radius</span>: <span class="val">2px</span>; }
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>Training Solution: Sample Form</h2>
+            <p>Here is how the markup from your training exercise (Employee Details) would look rendered:</p>
+            <div class="example-form">
+                <form>
+                    <fieldset>
+                        <legend>Employee Details</legend>
+                        <p>First name: <input type="text" name="fname" style="width: auto;"></p>
+                        <p>Last name: <input type="text" name="lname" style="width: auto;"></p>
+                        <p>
+                            <input type="radio" name="Gender" value="Male"> Male
+                            <input type="radio" name="Gender" value="Female"> Female
+                        </p>
+                        <button type="submit">Submit Details</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: sherrost@yahoo.com | Tel: 01501827070</p>
+        <p>Integration Course - Module 06</p>
+    </footer>
+</div>
+
+</body>
+</html>
