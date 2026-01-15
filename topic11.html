@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 11: CSS Positioning</title>
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --card-bg: #0c1226;
+            --primary-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --text-main: #ffffff;
+            --text-dim: #8fa0bc;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover { color: var(--accent-purple); }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .label { color: var(--accent-purple); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h1 { font-size: 2.5rem; margin: 10px 0; color: #d4a5ff; }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        h2 { color: var(--accent-purple); margin-top: 0; border-left: 4px solid var(--accent-purple); padding-left: 15px; font-size: 1.4rem;}
+        
+        ul { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 10px; }
+
+        .code-block {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #dcdccc;
+            overflow-x: auto;
+            border: 1px dashed var(--accent-purple);
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .tag { color: #569cd6; }
+        .attr { color: #9cdcfe; }
+        .val { color: #ce9178; }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: rgba(168, 85, 247, 0.1);
+            color: var(--accent-purple);
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← BACK TO SYLLABUS</a>
+
+    <header>
+        <div class="label">Lesson 11</div>
+        <h1>CSS Positioning</h1>
+        <p class="text-dim">Controlling the layout, stacking order, and alignment of elements.</p>
+    </header>
+
+    <div class="section-grid">
+        <div class="card full-width">
+            <h2>The Five Position Types</h2>
+            <p>The <code>position</code> property specifies the type of positioning method used for an element.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Static</strong></td>
+                        <td>Default. Follows the normal document flow.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relative</strong></td>
+                        <td>Positioned relative to its normal position without affecting siblings.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Absolute</strong></td>
+                        <td>Positioned relative to the nearest non-static ancestor. Removed from flow.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fixed</strong></td>
+                        <td>Positioned relative to the viewport. Stays in place during scroll.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sticky</strong></td>
+                        <td>Switches between relative and fixed based on the user's scroll position.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Relative Positioning</h2>
+            <p>Shifts an element using <code>top</code>, <code>bottom</code>, <code>left</code>, or <code>right</code> without moving the elements around it.</p>
+            <div class="code-block">
+                .box {<br>
+                &nbsp;&nbsp;<span class="attr">position</span>: <span class="val">relative</span>;<br>
+                &nbsp;&nbsp;<span class="attr">top</span>: <span class="val">20px</span>;<br>
+                &nbsp;&nbsp;<span class="attr">left</span>: <span class="val">30px</span>;<br>
+                }
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Fixed Positioning</h2>
+            <p>The element is removed from the document flow and stays at a specific spot on the screen even when you scroll.</p>
+            <div class="code-block">
+                .header {<br>
+                &nbsp;&nbsp;<span class="attr">position</span>: <span class="val">fixed</span>;<br>
+                &nbsp;&nbsp;<span class="attr">top</span>: <span class="val">0</span>;<br>
+                &nbsp;&nbsp;<span class="attr">width</span>: <span class="val">100%</span>;<br>
+                }
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>Key Differences to Remember</h2>
+            <ul>
+                <li><strong>Normal Flow:</strong> Only <code>static</code> and <code>relative</code> keep the element's space in the document layout.</li>
+                <li><strong>Ancestors:</strong> <code>absolute</code> positioning requires a parent with a position other than <code>static</code> to be contained.</li>
+                <li><strong>Offsets:</strong> The <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code> properties will not work unless <code>position</code> is set first.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: sherrost@yahoo.com | Tel: 01501827070</p>
+        <p>Integration Course - Topic 11</p>
+    </footer>
+</div>
+
+</body>
+</html>

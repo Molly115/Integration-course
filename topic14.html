@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 14: PHP Mastery</title>
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --card-bg: #0c1226;
+            --primary-orange: #f59e0b;
+            --text-main: #ffffff;
+            --text-dim: #8fa0bc;
+            --border: #1e293b;
+            --php-purple: #777bb4; /* Official PHP Brand Color */
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .label { color: var(--primary-orange); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 4px; }
+        h1 { font-size: 3.5rem; margin: 10px 0; color: #fff; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary-orange);
+        }
+
+        h2 { color: var(--primary-orange); font-size: 1.6rem; margin-top: 0; }
+        h3 { color: var(--php-purple); font-size: 1.2rem; }
+
+        .full-width { grid-column: 1 / -1; }
+
+        .code-block {
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Consolas', monospace;
+            color: #dcdccc;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            border: 1px solid #333;
+        }
+
+        .tag { color: #c586c0; }
+        .var { color: #9cdcfe; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; }
+        .keyword { color: #569cd6; }
+
+        .practical-zone {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border: 2px solid var(--primary-orange);
+            margin-top: 60px;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #4ed9c2;
+        }
+
+        .badge {
+            background: var(--primary-orange);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← RETURN TO SYLLABUS</a>
+
+    <header>
+        <div class="label">FINAL MODULE</div>
+        <h1>PHP: Server-Side Power</h1>
+        <p style="font-size: 1.2rem; color: var(--text-dim);">Mastering Dynamic Web Logic & Database Integration</p>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <h2>1. Variables & Data</h2>
+            <p>In PHP, variables start with the <code>$</code> sign. Unlike other languages, you don't need a command to declare them; they are created when you assign a value.</p>
+            <div class="code-block">
+                <span class="var">$name</span> = <span class="string">"Sherif"</span>;<br>
+                <span class="var">$age</span> = <span class="keyword">25</span>;
+            </div>
+            <h3>Core Rules:</h3>
+            <ul style="font-size: 0.9rem; color: var(--text-dim);">
+                <li>Must start with a letter or underscore.</li>
+                <li>Cannot start with a number.</li>
+                <li><strong>Case-Sensitive:</strong> <code>$age</code> and <code>$AGE</code> are different.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. GET vs POST</h2>
+            <p>These are superglobals used to collect form data.</p>
+            <div class="code-block">
+                <span class="comment">// Visible in URL (Limited)</span><br>
+                <span class="keyword">$_GET</span>[<span class="string">'user'</span>];<br><br>
+                <span class="comment">// Invisible/Secure (Unlimited)</span><br>
+                <span class="keyword">$_POST</span>[<span class="string">'pass'</span>];
+            </div>
+            <p style="font-size: 0.9rem;">Use <strong>POST</strong> for sensitive data like passwords!</p>
+        </div>
+
+        <div class="card">
+            <h2>3. Arrays & Logic</h2>
+            <p>PHP handles collections of data using <strong>Indexed Arrays</strong> and <strong>Associative Arrays</strong> (key-value pairs).</p>
+            <div class="code-block">
+                <span class="comment">// Associative Array</span><br>
+                <span class="var">$prices</span> = [<span class="string">"Apple"</span> => <span class="string">"2.00"</span>];
+            </div>
+            <p>Control the flow using <code>if/else</code> statements and <code>loops</code> to repeat actions.</p>
+        </div>
+
+        <div class="card full-width">
+            <h2>4. Database Integration (MySQL)</h2>
+            <p>PHP connects your website to a database to store and retrieve records. You can use <strong>MySQLi</strong> or <strong>PDO</strong>.</p>
+            
+            <div class="code-block">
+                <span class="var">$sql</span> = <span class="string">"INSERT INTO MyGuests (firstname, lastname) 
+                VALUES ('John', 'Doe')"</span>;<br>
+                <span class="keyword">if</span> (mysqli_query(<span class="var">$conn</span>, <span class="var">$sql</span>)) { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">echo</span> <span class="string">"New record created successfully"</span>; <br>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="practical-zone">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 40px;">🚀 Student Practice Lab</h2>
+        
+        <div class="challenge-card">
+            <div class="badge">TASK 01</div>
+            <h3>"My First PHP"</h3>
+            <p>Create a standalone PHP file that outputs a greeting on a blank page. This tests your environment setup.</p>
+            <div class="code-block">
+                <span class="tag">&lt;?php</span><br>
+                <span class="keyword">echo</span> <span class="string">"<h1>My First PHP!</h1>"</span>;<br>
+                <span class="tag">?&gt;</span>
+            </div>
+        </div>
+
+        <div class="challenge-card">
+            <div class="badge">TASK 02</div>
+            <h3>PHP inside HTML</h3>
+            <p>Create a standard HTML5 template and use PHP to dynamically output the current date or a variable value inside a paragraph.</p>
+            <div class="code-block">
+                <span class="tag">&lt;body&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>Today is <span class="tag">&lt;?php</span> <span class="keyword">echo</span> <span class="keyword">date</span>(<span class="string">"Y-m-d"</span>); <span class="tag">?&gt;</span><span class="tag">&lt;/p&gt;</span><br>
+                <span class="tag">&lt;/body&gt;</span>
+            </div>
+        </div>
+
+        <div class="challenge-card">
+            <div class="badge">TASK 03</div>
+            <h3>The Form Handler</h3>
+            <p>Design an HTML form with a text input. Create a second file (<code>action.php</code>) that uses <code>$_POST</code> to display what the user typed.</p>
+            
+            <div class="code-block">
+                <span class="comment">&lt;!-- Form in index.html --&gt;</span><br>
+                <span class="tag">&lt;form</span> <span class="attr">method</span>=<span class="val">"POST"</span> <span class="attr">action</span>=<span class="val">"action.php"</span><span class="tag">&gt;</span><br>
+                &nbsp;&nbsp;Name: <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">name</span>=<span class="val">"fname"</span><span class="tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Send<span class="tag">&lt;/button&gt;</span><br>
+                <span class="tag">&lt;/form&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Integration Path Final Module</strong></p>
+        <p>Contact: sherrost@yahoo.com | Phone: 01501827070 - 01017776756</p>
+        <p>© 2024 Digital Marketing Extension - 1st Year</p>
+    </footer>
+</div>
+
+</body>
+</html>

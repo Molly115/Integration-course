@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 13: Event Driven Programming</title>
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --card-bg: #0c1226;
+            --primary-orange: #f59e0b;
+            --text-main: #ffffff;
+            --text-dim: #8fa0bc;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover { color: var(--primary-orange); }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .label { color: var(--primary-orange); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h1 { font-size: 2.5rem; margin: 10px 0; color: #ffcc66; }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        h2 { color: var(--primary-orange); margin-top: 0; border-left: 4px solid var(--primary-orange); padding-left: 15px; font-size: 1.4rem;}
+        
+        ul { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 10px; }
+
+        .code-block {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #dcdccc;
+            overflow-x: auto;
+            border: 1px dashed var(--primary-orange);
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .comment { color: #6a9955; }
+        .keyword { color: #569cd6; }
+        .func { color: #dcdcaa; }
+        .string { color: #ce9178; }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← BACK TO SYLLABUS</a>
+
+    <header>
+        <div class="label">Lesson 13</div>
+        <h1>Event Driven Programming (EDP)</h1>
+        <p class="text-dim">Building responsive applications that react to user actions and system notifications.</p>
+    </header>
+
+    <div class="section-grid">
+        <div class="card">
+            <h2>What is EDP?</h2>
+            <p>A programming paradigm where the flow of the program is determined by <strong>events</strong>. Instead of following a strict top-to-bottom sequence, the code "waits" for something to happen.</p>
+            <ul>
+                <li><strong>User Actions:</strong> Clicks, key presses.</li>
+                <li><strong>System Events:</strong> Sensor outputs, messages from other programs.</li>
+                <li><strong>Efficiency:</strong> Perfect for GUIs and gaming software.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>The Event Loop</h2>
+            <p>The heart of EDP. It continuously monitors for events and dispatches them to the appropriate <strong>Event Handlers</strong>.</p>
+            
+        </div>
+
+        <div class="card full-width">
+            <h2>Python: Asyncio & Coroutines</h2>
+            <p>In Python, we use the <code>asyncio</code> module to handle asynchronous tasks. <strong>Coroutines</strong> are specialized functions defined with <code>async def</code>.</p>
+            
+            <div class="code-block">
+                <span class="keyword">import</span> asyncio<br><br>
+                <span class="keyword">async def</span> <span class="func">main</span>():<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="func">print</span>(<span class="string">"Hello..."</span>)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">await</span> asyncio.<span class="func">sleep</span>(1) <span class="comment"># Simulate a wait</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="func">print</span>(<span class="string">"...World!"</span>)<br><br>
+                asyncio.<span class="func">run</span>(main())
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Tasks (asyncio.Task)</h2>
+            <p>Tasks are used to schedule coroutines concurrently. This allows the program to handle multiple asynchronous units of work at once without stopping the whole script.</p>
+        </div>
+
+        <div class="card">
+            <h2>Key Takeaways</h2>
+            <ul>
+                <li><strong>Responsive:</strong> Apps stay active while waiting for data.</li>
+                <li><strong>Scalable:</strong> Efficiently handles multiple tasks.</li>
+                <li><strong>Modern:</strong> Essential for web servers and interactive desktop apps.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: sherrost@yahoo.com | Tel: 01501827070</p>
+        <p>Integration Course - Topic 13</p>
+    </footer>
+</div>
+
+</body>
+</html>
